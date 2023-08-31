@@ -1,0 +1,472 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Kaushan+Script&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'EB Garamond', sans-serif;
+}
+
+body{
+    background-color: #fae6fc;
+}
+
+
+
+
+.btn{
+    margin: 40px 0 70px 0;
+    background-color: #222;
+    padding: 15px 40px;
+    border-radius: 5px;
+    display: inline;
+    
+
+}
+
+.btn a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bolder;
+    letter-spacing: 3px;
+
+}
+
+
+
+input{
+    display: none;
+}
+.container{
+    width: 100%;
+    text-align: center;
+}
+
+h1{
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0px;
+}
+
+h1::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+
+.top-content{
+    background-color: rgb(243, 243, 243);
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+}
+
+h3{
+    height: 100%;
+    background-color: rgb(173, 173, 173);
+    line-height: 60px;
+    padding: 0 50px;
+    color: white;
+}
+
+label{
+    display: inline-block;
+    height: 100%;
+    padding: 0 5px;
+    margin: 0 5px;
+    line-height: 60px;
+    font-size: 16px;
+    color: gray;
+    cursor: pointer;
+    transition: .5s;
+}
+
+label:hover{
+    color: black;
+}
+
+.photo-gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:20px;
+
+}
+
+.pic{
+    position: relative;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgray;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.pic::before{
+    content: "♥";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s;
+    z-index: 1;
+
+}
+
+.pic:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgb(0, 0, 0,.4);
+    transition: .3s;
+}
+
+.pic:hover::after{
+    height: 100%;
+}
+
+.pic:hover::before{
+    margin-top: 0;
+    opacity: 1;
+}
+
+#check1:checked ~ .container .photo-gallery .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    
+}
+
+#check2:checked ~ .container .photo-gallery .pudim,
+#check2:checked ~ .container .photo-gallery .date{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+
+#check2:checked ~ .container .photo-gallery .coimbra,
+#check2:checked ~ .container .photo-gallery .praia,
+#check2:checked ~ .container .photo-gallery .porto,
+#check2:checked ~ .container .photo-gallery .biblioteca,
+#check2:checked ~ .container .photo-gallery .brasil,
+#check2:checked ~ .container .photo-gallery .tiago,
+#check2:checked ~ .container .photo-gallery .niver,
+#check2:checked ~ .container .photo-gallery .kianda,
+#check2:checked ~ .container .photo-gallery .agueda,
+#check2:checked ~ .container .photo-gallery .bom,
+#check2:checked ~ .container .photo-gallery .spain,
+#check2:checked ~ .container .photo-gallery .outras {
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+
+#check3:checked ~ .container .photo-gallery .coimbra,
+#check3:checked ~ .container .photo-gallery .praia{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+
+#check3:checked ~ .container .photo-gallery .pudim,
+#check3:checked ~ .container .photo-gallery .date,
+#check3:checked ~ .container .photo-gallery .porto,
+#check3:checked ~ .container .photo-gallery .biblioteca,
+#check3:checked ~ .container .photo-gallery .brasil,
+#check3:checked ~ .container .photo-gallery .tiago,
+#check3:checked ~ .container .photo-gallery .niver,
+#check3:checked ~ .container .photo-gallery .kianda,
+#check3:checked ~ .container .photo-gallery .agueda,
+#check3:checked ~ .container .photo-gallery .bom,
+#check3:checked ~ .container .photo-gallery .spain,
+#check3:checked ~ .container .photo-gallery .outras{
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+
+
+#check4:checked ~ .container .photo-gallery .porto,
+#check4:checked ~ .container .photo-gallery .biblioteca{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+
+#check4:checked ~ .container .photo-gallery .pudim,
+#check4:checked ~ .container .photo-gallery .date,
+#check4:checked ~ .container .photo-gallery .coimbra,
+#check4:checked ~ .container .photo-gallery .praia,
+#check4:checked ~ .container .photo-gallery .brasil,
+#check4:checked ~ .container .photo-gallery .tiago,
+#check4:checked ~ .container .photo-gallery .niver,
+#check4:checked ~ .container .photo-gallery .kianda,
+#check4:checked ~ .container .photo-gallery .agueda,
+#check4:checked ~ .container .photo-gallery .bom,
+#check4:checked ~ .container .photo-gallery .spain,
+#check4:checked ~ .container .photo-gallery .outras{
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+#check5:checked ~ .container .photo-gallery .brasil{
+
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+    
+
+
+#check5:checked ~ .container .photo-gallery .pudim,
+#check5:checked ~ .container .photo-gallery .date,
+#check5:checked ~ .container .photo-gallery .coimbra,
+#check5:checked ~ .container .photo-gallery .praia,
+#check5:checked ~ .container .photo-gallery .porto,
+#check5:checked ~ .container .photo-gallery .biblioteca,
+#check5:checked ~ .container .photo-gallery .tiago,
+#check5:checked ~ .container .photo-gallery .niver,
+#check5:checked ~ .container .photo-gallery .kianda,
+#check5:checked ~ .container .photo-gallery .agueda,
+#check5:checked ~ .container .photo-gallery .bom,
+#check5:checked ~ .container .photo-gallery .spain,
+#check5:checked ~ .container .photo-gallery .outras{
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+#check6:checked ~ .container .photo-gallery .tiago
+#check6:checked ~ .container .photo-gallery .niver{
+
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+    
+
+
+#check6:checked ~ .container .photo-gallery .pudim,
+#check6:checked ~ .container .photo-gallery .date,
+#check6:checked ~ .container .photo-gallery .coimbra,
+#check6:checked ~ .container .photo-gallery .praia,
+#check6:checked ~ .container .photo-gallery .porto,
+#check6:checked ~ .container .photo-gallery .biblioteca,
+#check6:checked ~ .container .photo-gallery .brasil,
+#check6:checked ~ .container .photo-gallery .kianda,
+#check6:checked ~ .container .photo-gallery .agueda,
+#check6:checked ~ .container .photo-gallery .bom,
+#check6:checked ~ .container .photo-gallery .spain,
+#check6:checked ~ .container .photo-gallery .outras{
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+#check7:checked ~ .container .photo-gallery .kianda
+#check7:checked ~ .container .photo-gallery .agueda{
+
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+   
+}
+    
+
+
+#check7:checked ~ .container .photo-gallery .pudim,
+#check7:checked ~ .container .photo-gallery .date,
+#check7:checked ~ .container .photo-gallery .coimbra,
+#check7:checked ~ .container .photo-gallery .praia,
+#check7:checked ~ .container .photo-gallery .porto,
+#check7:checked ~ .container .photo-gallery .biblioteca,
+#check7:checked ~ .container .photo-gallery .brasil,
+#check7:checked ~ .container .photo-gallery .tiago,
+#check7:checked ~ .container .photo-gallery .niver,
+#check7:checked ~ .container .photo-gallery .bom,
+#check7:checked ~ .container .photo-gallery .spain,
+#check7:checked ~ .container .photo-gallery .outras{
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+
+#check8:checked ~ .container .photo-gallery .bom
+#check8:checked ~ .container .photo-gallery .spain{
+
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;}
+    
+
+
+#check8:checked ~ .container .photo-gallery .pudim,
+#check8:checked ~ .container .photo-gallery .date,
+#check8:checked ~ .container .photo-gallery .coimbra,
+#check8:checked ~ .container .photo-gallery .praia,
+#check8:checked ~ .container .photo-gallery .porto,
+#check8:checked ~ .container .photo-gallery .biblioteca,
+#check8:checked ~ .container .photo-gallery .brasil,
+#check8:checked ~ .container .photo-gallery .tiago,
+#check8:checked ~ .container .photo-gallery .niver,
+#check8:checked ~ .container .photo-gallery .kianda,
+#check8:checked ~ .container .photo-gallery .agueda,
+#check8:checked ~ .container .photo-gallery .outras{
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+
+#check9:checked ~ .container .photo-gallery .outras{
+
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;}
+    
+
+
+#check9:checked ~ .container .photo-gallery .pudim,
+#check9:checked ~ .container .photo-gallery .date,
+#check9:checked ~ .container .photo-gallery .coimbra,
+#check9:checked ~ .container .photo-gallery .praia,
+#check9:checked ~ .container .photo-gallery .porto,
+#check9:checked ~ .container .photo-gallery .biblioteca,
+#check9:checked ~ .container .photo-gallery .brasil,
+#check9:checked ~ .container .photo-gallery .tiago,
+#check9:checked ~ .container .photo-gallery .niver,
+#check9:checked ~ .container .photo-gallery .kianda,
+#check9:checked ~ .container .photo-gallery .agueda,
+#check9:checked ~ .container .photo-gallery .bom,
+#check9:checked ~ .container .photo-gallery .spain{
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: 0s;
+    
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .container{
+        width: 100%;
+        text-align: center;
+    }
+
+    .top-content{
+        
+        display: inline;}
+        
+
+
+    label{
+        display: inline-block;
+        height: 100%;
+        padding: 0 5px;
+        margin: 0 5px;
+        line-height: 60px;
+        font-size: 13px;
+        color: gray;
+        cursor: pointer;
+        transition: .5s;
+    }
+
+
+}
+
+
+@media (max-width:767px){
+
+
+    .photo-gallery{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap:20px;
+    
+    }
+
+}
